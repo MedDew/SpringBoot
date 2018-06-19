@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unauthorized Area</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+        <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <div th:include="fragments/menu :: menu"></div>
+        
+        <div class="container">
+            
+            <div class="form-group col-md-4">
+            </div>
+
+            <div class="form-group col-md-4">
+                <div class="card text-white bg-warning">
+                    <div class="card-header">
+                        Restricted access
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Unsufficient Privileges</h5>
+                        <p class="card-text">You're not allowed to access this part of the application</p>
+                        <a th:href="@{/music/musicList}" class="badge badge-pill badge-danger">
+                            Back to music catalog
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+            </div>
+        </div>
+    </body>
+</html>

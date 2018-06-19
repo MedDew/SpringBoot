@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Music Library Login Form : Spring Boot MVC Security</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+    <body>
+        <div th:include="fragments/menu :: menu"></div>
+        
+        <div class="container">
+            
+            <div class="mx-auto text-center py-5">
+                <h1 class="display-4 px-2">User Login Form : Spring Boot MVC Security</h1>
+            </div>
+            
+            <div class="alert alert-danger my-2" role="alert" th:if="${param.error}">
+                Bad Credentials
+            </div>
+            
+
+            <form th:action="@{/music-login}" method="POST">
+                
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <label for="user-name">
+                            User Name :
+                        </label>
+                        <input type="text" name="username" class="form-control" id="user-name"/>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>    
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <label for="password">
+                            Password :
+                        </label>
+                        <input type="password" name="password" class="form-control" id = "password"/>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

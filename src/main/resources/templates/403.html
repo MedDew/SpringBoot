@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Access Denied</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+    <body>
+        
+        <div class="container">
+            
+            <div class="mx-auto text-center py-5">
+                <h1 class="display-4 px-2">Access Denied Exception</h1>
+            </div>
+
+            <div>
+                     Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
+                     <form th:action="@{/music/logout}" method="POST">
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="logOut">
+                                    Log Out : 
+                                </label>
+                                <button type="submit" id="logOut" class="btn btn-primary">Logout</button>
+                            </div>
+                            <div class="form-group col-md-4">
+                            </div>
+                             
+                        </div>
+                     </form>
+            </div> 	 
+            <p class="error" th:text="${errorMsg}">Error</p>
+        </div>
+    </body>
+</html>

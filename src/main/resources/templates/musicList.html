@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Music List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+        <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <div th:include="fragments/menu :: menu"></div>
+        
+            
+        <div class="mx-auto text-center py-5">
+            <h1 class="display-4 px-2">Music List</h1>
+        </div>
+        <div class="col-md-12">
+
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>Band</th>
+                        <th>Album</th>
+                        <th>Release Year</th>
+                        <th>Genre</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+
+                <tr th:each="music : ${musicList}">
+                    <td th:text="${music.category.categoryName}"></td>
+                    <td th:text="${music.band}"></td>
+                    <td th:text="${music.album}"></td>
+                    <td th:text="${music.releaseYear}"></td>
+                    <td>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item" th:each="genre, iteration :${music.genres}">
+                                <span class="badge badge-success" th:text="${genre.genreName}"></span>
+                                <span th:text="!${iteration.last} ? '&nbsp;|&nbsp;' : ''">jdsjhbch</span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{'/music/secure/update/'+${music.id}}">Update</a><!-- ${music.id}  ,genre = ${music.genres}-->
+                        <a class="btn btn-dark" th:href="@{'/music/secure/update/addGenre/'+${music.id}}">Update/Add Genre</a><!--,genre = ${music.genres}-->
+                        <a class="btn btn-danger" th:href="@{'/music/secure/delete/'+${music.id}}">Delete</a><!--,genre = ${music.genres}-->
+                    </td>
+                </tr>
+
+            </table>
+        </div>  
+    </body>
+</html>
